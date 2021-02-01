@@ -172,7 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a830ba9ff2c3c84ca9053dd775f4504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 663323371}
 --- !u!114 &17713535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,7 +534,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 77470695795839072, guid: 8adcd4be39b4eb04db87d8d6c0926609,
+  playerPrefab: {fileID: 77470695795839072, guid: 0d46eb6bebf91d2419040a353e52677b,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
