@@ -169,7 +169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 17713532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10902307bf35e4f4f8f11dfb2d096daa, type: 3}
+  m_Script: {fileID: 11500000, guid: e00b1efc63f2f444ca31ccc4d30490ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 663323371}
@@ -481,8 +481,8 @@ GameObject:
   - component: {fileID: 574940227}
   - component: {fileID: 574940226}
   - component: {fileID: 574940225}
-  - component: {fileID: 574940229}
   - component: {fileID: 574940228}
+  - component: {fileID: 574940229}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -536,7 +536,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 77470695795839072, guid: 4eb3a22f90160a845b1bd31459dcc8ce,
+  playerPrefab: {fileID: 77470695795839072, guid: 18f29cb6ee9814e4a84971d6b943096e,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
@@ -564,9 +564,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 574940224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1b105f99ccd4d8a4a3244c9ea0ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showGUI: 1
+  offsetX: 0
+  offsetY: 0
 --- !u!114 &574940229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,12 +579,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 574940224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
+  m_Script: {fileID: 11500000, guid: 8361b56db3957f640a6cbde4b5b0689b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showGUI: 1
-  offsetX: 0
-  offsetY: 0
 --- !u!1 &663323369
 GameObject:
   m_ObjectHideFlags: 0
