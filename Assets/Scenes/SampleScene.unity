@@ -481,8 +481,8 @@ GameObject:
   - component: {fileID: 574940227}
   - component: {fileID: 574940226}
   - component: {fileID: 574940225}
-  - component: {fileID: 574940228}
   - component: {fileID: 574940229}
+  - component: {fileID: 574940228}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -499,12 +499,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 574940224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a880096698a3cc945a62bbc4810a88c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showGUI: 1
-  offsetX: 0
-  offsetY: 0
+  Port: 7777
+  NoDelay: 1
+  Interval: 10
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 128
+  ReceiveWindowSize: 128
+  debugLog: 0
+  debugGUI: 0
 --- !u!114 &574940226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,7 +520,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 574940224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ce9d2af13b116439a1ea5576ed30e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
@@ -524,13 +530,14 @@ MonoBehaviour:
   serverTickRate: 30
   offlineScene: 
   onlineScene: 
-  transport: {fileID: 574940229}
+  transport: {fileID: 574940225}
   networkAddress: localhost
   maxConnections: 4
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 77470695795839072, guid: 4eb3a22f90160a845b1bd31459dcc8ce,
+    type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
@@ -569,18 +576,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 574940224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 977dc5139e63e6b4e925e695ed099f9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Port: 7777
-  NoDelay: 1
-  Interval: 10
-  FastResend: 2
-  CongestionWindow: 0
-  SendWindowSize: 128
-  ReceiveWindowSize: 128
-  debugLog: 0
-  debugGUI: 0
+  showGUI: 1
+  offsetX: 0
+  offsetY: 0
 --- !u!1 &663323369
 GameObject:
   m_ObjectHideFlags: 0
