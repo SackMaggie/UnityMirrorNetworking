@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Player : NetworkBehaviour
 {
-    public static Player selfPlayer;
+    public static Player selfPlayer; //aaaaa
 
     public static void SendData(DataCommand command, byte[] data)
     {
