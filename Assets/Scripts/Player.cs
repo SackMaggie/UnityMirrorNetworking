@@ -6,27 +6,26 @@ using UnityEngine.Events;
 
 public class Player : NetworkBehaviour
 {
-    public static NetworkEvent onDataReceive = new NetworkEvent();
-    public class NetworkEvent : UnityEvent<DataCommand, object[]> { };
     public static Player selfPlayer;
 
-    public static void SendData(DataCommand command, object[] data)
+    public static void SendData(DataCommand command, byte[] data)
     {
         if (selfPlayer == null)
             selfPlayer = NetworkClient.connection.identity.GetComponent<Player>();
+
         selfPlayer.CmdSend(command, data);
     }
 
     [Command]
-    public void CmdSend(DataCommand command, object[] data)
+    public void CmdSend(DataCommand command, byte[] data)
     {
         RpcReceive(command, data);
     }
 
     [ClientRpc]
-    public void RpcReceive(DataCommand command, object[] data)
+    public void RpcReceive(DataCommand command, byte[] data)
     {
-        onDataReceive.Invoke(command, data);
+        ReceiveData.onDataReceive.Invoke(command, data);
     }
 }
 

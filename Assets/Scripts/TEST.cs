@@ -9,25 +9,18 @@ public class TEST : MonoBehaviour
     public Button button;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        Player.onDataReceive.AddListener(OnDataReceive);
         button.onClick.AddListener(OnClicked);
     }
 
     private void OnClicked()
     {
-        Player.SendData(DataCommand.TEST1, null);
+        SendData.SenderFuction(200, true);
     }
 
-    private void OnDataReceive(DataCommand arg0, object[] arg1)
+    public static void OnDataReceive(int value, bool value2)
     {
-        Debug.Log(arg0.ToString());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log(value + " : " + value2);
     }
 }
