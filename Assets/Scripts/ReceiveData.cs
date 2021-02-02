@@ -17,14 +17,17 @@ public class ReceiveData : MonoBehaviour
         onDataReceive.AddListener(OnDataReceived);
     }
 
-    private void OnDataReceived(DataCommand dataCommand, byte[] arg)
+    private void OnDataReceived(DataCommand dataCommand, byte[] data)
     {
         try
         {
             switch (dataCommand)
             {
                 case DataCommand.TEST1:
-                    ReaderFuction(arg);
+                    ReaderFuction(data);
+                    break;
+                case DataCommand.TEST_SumOnServer:
+                    ReadSumResult(data);
                     break;
                 default:
                     break;
@@ -36,14 +39,24 @@ public class ReceiveData : MonoBehaviour
         }
     }
 
-    public void ReaderFuction(byte[] arg)
+    public void ReaderFuction(byte[] data)
     {
-        PooledNetworkReader pooledNetworkReader = NetworkReaderPool.GetReader(arg);
+        PooledNetworkReader pooledNetworkReader = NetworkReaderPool.GetReader(data);
         int value = pooledNetworkReader.Read<int>();
         bool value2 = pooledNetworkReader.Read<bool>();
         Debug.LogWarning("ABCD " + value);
 
         TEST.OnDataReceive(value, value2);
+
+        pooledNetworkReader.Dispose();
+    }
+
+    public void ReadSumResult(byte[] data)
+    {
+        PooledNetworkReader pooledNetworkReader = NetworkReaderPool.GetReader(data);
+        int value = pooledNetworkReader.Read<int>();
+
+        Debug.LogWarning("Sum " + value);
 
         pooledNetworkReader.Dispose();
     }

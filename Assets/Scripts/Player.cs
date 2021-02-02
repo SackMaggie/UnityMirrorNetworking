@@ -6,8 +6,7 @@ using UnityEngine.Events;
 
 public class Player : NetworkBehaviour
 {
-    public static Player selfPlayer; //aaaaa
-
+    private static Player selfPlayer;
     public static void SendData(DataCommand command, byte[] data)
     {
         if (selfPlayer == null)
@@ -19,7 +18,17 @@ public class Player : NetworkBehaviour
     [Command]
     public void CmdSend(DataCommand command, byte[] data)
     {
-        RpcReceive(command, data);
+        switch (command)
+        {
+            case DataCommand.TEST1:
+                RpcReceive(command, data);
+                break;
+            case DataCommand.TEST_SumOnServer:
+                SumOnServer(data);
+                break;
+            default:
+                break;
+        }
     }
 
     [ClientRpc]
@@ -27,9 +36,21 @@ public class Player : NetworkBehaviour
     {
         ReceiveData.onDataReceive.Invoke(command, data);
     }
-}
-
-public enum DataCommand
-{
-    TEST1
+    
+    [Server]
+    public void SumOnServer(byte[] serverReceivedData)
+    {
+        PooledNetworkReader pooledNetworkReader = NetworkReaderPool.GetReader(serverReceivedData);
+        int a = pooledNetworkReader.Read<int>();
+        int b = pooledNetworkReader.Read<int>();
+        pooledNetworkReader.Dispose();
+        PooledNetworkWriter pooledNetworkWriter = NetworkWriterPool.GetWriter();
+        int result = a + b;
+        pooledNetworkWriter.Write(result);
+        pooledNetworkWriter.ToArray();
+        byte[] dataToSendClient = pooledNetworkWriter.ToArray();
+        Debug.LogWarning("Server " + result);
+        RpcReceive(DataCommand.TEST_SumOnServer, dataToSendClient);
+        pooledNetworkWriter.Dispose();
+    }
 }
