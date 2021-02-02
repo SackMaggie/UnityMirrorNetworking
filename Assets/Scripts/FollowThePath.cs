@@ -18,7 +18,6 @@ public class FollowThePath : MonoBehaviour
         transform.position = waypoints[waypointIndex].transform.position;
     }
 
-
     void Update()
     {
 
