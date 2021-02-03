@@ -540,6 +540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715618511}
   - component: {fileID: 715618510}
+  - component: {fileID: 715618512}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: Untagged
@@ -573,6 +574,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &715618512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715618509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8999596e14e72e64296ac77c283ef082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 271839996}
+  Players:
+  - {fileID: 1201828533}
+  - {fileID: 967238998}
+  AllBoardWaypoint: []
 --- !u!1 &748654170
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,8 +1006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd62c1022d56c947aee6fade2bbb99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board: {fileID: 271839996}
-  AllBoardWaypoint: []
   waypoints: []
   moveSpeed: 5
   waypointIndex: 0
@@ -1407,8 +1423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd62c1022d56c947aee6fade2bbb99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board: {fileID: 271839996}
-  AllBoardWaypoint: []
   waypoints: []
   moveSpeed: 5
   waypointIndex: 0
