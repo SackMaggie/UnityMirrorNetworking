@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class FollowThePath : MonoBehaviour
 {
+    public Transform board;
+    public List<Transform> AllBoardWaypoint = new List<Transform>(); 
+
     public Transform[] waypoints;
 
     [SerializeField]
@@ -13,6 +17,12 @@ public class FollowThePath : MonoBehaviour
     public bool moveAllowed = false;
     private void Start()
     {
+        Transform WayP = board.GetComponentInChildren<Transform>();
+        foreach(Transform child in board)
+        {
+            AllBoardWaypoint.Add(child.transform);
+        }
+        waypoints = AllBoardWaypoint.ToArray();
         transform.position = waypoints[waypointIndex].transform.position;
     }
 
