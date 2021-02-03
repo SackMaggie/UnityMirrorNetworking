@@ -685,6 +685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd62c1022d56c947aee6fade2bbb99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 0}
+  AllBoardWaypoint: []
   waypoints:
   - {fileID: 1385800195}
   - {fileID: 1273237372}
@@ -879,6 +881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd62c1022d56c947aee6fade2bbb99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 0}
+  AllBoardWaypoint: []
   waypoints:
   - {fileID: 1385800195}
   - {fileID: 1273237372}
@@ -912,9 +916,9 @@ MonoBehaviour:
   - {fileID: 2145375776}
   - {fileID: 142159339}
   - {fileID: 1939121149}
-  moveSpeed: 1
+  moveSpeed: 5
   waypointIndex: 0
-  moveAllowed: 1
+  moveAllowed: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780078805}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.92, y: 0.24, z: 0.74}
+  m_LocalPosition: {x: 5.56, y: 0.24, z: 0.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -28,17 +28,21 @@ public class FollowThePath : MonoBehaviour
 
     private void Update()
     {
-        if (moveAllowed)
+        if (moveAllowed == true)
+        {
             Move();
+        }
     }
     private void Move()
     {
         if(waypointIndex <= waypoints.Length - 1)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
             
+           transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].position, moveSpeed * Time.deltaTime);
+            print(waypointIndex);
             if (transform.position == waypoints[waypointIndex].transform.position)
             {
+                print("555");
                 waypointIndex += 1;
             }
         }
