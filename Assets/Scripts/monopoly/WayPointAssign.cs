@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class WayPointAssign : MonoBehaviour
 {
-    public Transform board;
+    public Transform waypointContainer;
     public FollowThePath[] Players;
     [SerializeField]
     List<Transform> AllBoardWaypoint = new List<Transform>();
 
     void Start()
     {
-        Transform WayP = board.GetComponentInChildren<Transform>();
-        foreach (Transform child in board)
+        Transform WayP = waypointContainer.GetComponentInChildren<Transform>();
+        foreach (Transform child in waypointContainer)
         {
             AllBoardWaypoint.Add(child.transform);
         }

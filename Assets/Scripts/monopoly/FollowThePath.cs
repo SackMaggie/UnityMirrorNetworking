@@ -14,7 +14,7 @@ public class FollowThePath : MonoBehaviour
     public bool moveAllowed = false;
     private void Start()
     {
-        transform.position = waypoints[waypointIndex].transform.position;
+        transform.localPosition = waypoints[waypointIndex].transform.localPosition;
     }
 
     private void Update()
@@ -29,9 +29,9 @@ public class FollowThePath : MonoBehaviour
         if(waypointIndex <= waypoints.Length - 1)
         {
             
-            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].position, moveSpeed * Time.deltaTime);
+            transform.localPosition = Vector2.MoveTowards(transform.localPosition, waypoints[waypointIndex].localPosition, moveSpeed * Time.deltaTime);
             print(waypointIndex);
-            if (transform.position == waypoints[waypointIndex].transform.position)
+            if (transform.localPosition == waypoints[waypointIndex].transform.localPosition)
             {
                 print("555");
                 waypointIndex += 1;
