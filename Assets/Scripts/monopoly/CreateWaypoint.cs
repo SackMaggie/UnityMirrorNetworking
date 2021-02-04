@@ -10,26 +10,26 @@ public class CreateWaypoint : MonoBehaviour
 
     private void Awake()
     {
-        for (int i = 0; i <= 32; i++)
+        for (int i = 0; i <= 31; i++)
         {
             GameObject waypoint = Instantiate(waypointPre, this.transform);
             waypoint.transform.localPosition = new Vector2(posX, -posY);
             waypoint.name = "waypoint (" + i.ToString() + ")";
-            if (i < 8)
+            if (i <= 7)
             {
-                posX = posX - 10.75f; ;
+                posX = posX - 10.75f;
             }
-            else if (i > 8 && i <= 16)
+            else if(i > 7 && i <= 15)
             {
-                posY = posY - 10.75f; ;
+                posY = posY - 10.75f;
             }
-            else if (i > 16 && i <= 24)
+            else if(i > 15 && i <= 23)
             {
-                posX = posX + 10.75f; ;
+                posX = posX + 10.75f;
             }
-            else if (i > 24)
+            else if(i > 23)
             {
-                posY = posY + 10.75f; ;
+                posY = posY + 10.75f;
             }
         }
     }
