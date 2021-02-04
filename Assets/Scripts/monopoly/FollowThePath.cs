@@ -3,9 +3,6 @@ using System.Collections.Generic;
 
 public class FollowThePath : MonoBehaviour
 {
-    public Transform board;
-    public List<Transform> AllBoardWaypoint = new List<Transform>(); 
-
     public Transform[] waypoints;
 
     [SerializeField]
@@ -17,6 +14,7 @@ public class FollowThePath : MonoBehaviour
     public bool moveAllowed = false;
     private void Start()
     {
+<<<<<<< HEAD
        
 
         Transform WayP = board.GetComponentInChildren<Transform>();
@@ -27,6 +25,9 @@ public class FollowThePath : MonoBehaviour
         waypoints = AllBoardWaypoint.ToArray();
         transform.localPosition = waypoints[waypointIndex].transform.localPosition;
 
+=======
+        transform.position = waypoints[waypointIndex].transform.position;
+>>>>>>> 76411a1c3045648e96968179bf676f0b26124b31
     }
 
     private void Update()
