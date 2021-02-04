@@ -14,20 +14,7 @@ public class FollowThePath : MonoBehaviour
     public bool moveAllowed = false;
     private void Start()
     {
-<<<<<<< HEAD
-       
-
-        Transform WayP = board.GetComponentInChildren<Transform>();
-        foreach(Transform child in board)
-        {
-            AllBoardWaypoint.Add(child.transform);
-        }
-        waypoints = AllBoardWaypoint.ToArray();
-        transform.localPosition = waypoints[waypointIndex].transform.localPosition;
-
-=======
         transform.position = waypoints[waypointIndex].transform.position;
->>>>>>> 76411a1c3045648e96968179bf676f0b26124b31
     }
 
     private void Update()
