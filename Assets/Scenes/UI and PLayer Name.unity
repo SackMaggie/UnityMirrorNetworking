@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8999596e14e72e64296ac77c283ef082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board: {fileID: 271839996}
+  waypointContainer: {fileID: 951803340}
   Players:
   - {fileID: 1201828533}
   - {fileID: 967238998}
@@ -989,7 +989,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  moveSpeed: 5
+  moveSpeed: 20
   waypointIndex: 0
   moveAllowed: 1
 --- !u!1 &1117667862
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  moveSpeed: 5
+  moveSpeed: 20
   waypointIndex: 0
   moveAllowed: 1
 --- !u!1 &1553205764
