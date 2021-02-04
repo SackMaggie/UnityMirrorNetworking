@@ -38,17 +38,22 @@ public class DiceText : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        GameControl.diceSideThrown = randomDiceSide + 1;
+        GameControl.diceSideThrown = randomDiceSide;
+
+        if(whosTurn >= 3)
+        {
+            whosTurn = 1;
+        }
 
         if (whosTurn == 1)
         {
             GameControl.MovePlayer(1);            
         }
-        else if(whosTurn == -1)
+        else if(whosTurn == 2)
         {
             GameControl.MovePlayer(2);
         }
-        whosTurn *= -1;
+        whosTurn++;
         corountinceAllowed = true;
     }    
 }
