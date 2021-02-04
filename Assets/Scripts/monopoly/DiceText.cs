@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dice : MonoBehaviour
+public class DiceText : MonoBehaviour
 {
-    private Sprite[] diceSides;
-    private SpriteRenderer rend;
-    //public TMPro.TextMeshProUGUI diceSides;
+    //private Sprite[] diceSides;
+    //private SpriteRenderer rend;
+    public TMPro.TextMeshProUGUI diceSides;
 
     private int whosTurn = 1;
     private bool corountinceAllowed = true;
@@ -14,10 +14,10 @@ public class Dice : MonoBehaviour
     
     void Start()
     {
-        rend = GetComponent<SpriteRenderer>();
-        diceSides = Resources.LoadAll<Sprite>("DiceSide/");
-        rend.sprite = diceSides[5];
-        //diceSides.text = "6";
+        //rend = GetComponent<SpriteRenderer>();
+        //diceSides = Resources.LoadAll<Sprite>("DiceSide/");
+        //rend.sprite = diceSides[5];
+        diceSides.text = "Thrown";
     }
 
     private void OnMouseDown()
@@ -32,9 +32,9 @@ public class Dice : MonoBehaviour
         int randomDiceSide = 0;
         for (int i = 0; i <= 20; i++)
         {
-            randomDiceSide = Random.Range(0, 6);
-            //diceSides.text = randomDiceSide.ToString();
-            rend.sprite = diceSides[randomDiceSide];
+            randomDiceSide = Random.Range(1, 7);
+            diceSides.text = randomDiceSide.ToString();
+            //rend.sprite = diceSides[randomDiceSide];
             yield return new WaitForSeconds(0.05f);
         }
 

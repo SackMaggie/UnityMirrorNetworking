@@ -36,8 +36,8 @@ public class GameControl : MonoBehaviour
     void Update()
     {
 
-        player1.GetComponent<FollowThePath>().waypointIndex = player1StartWaypoint + diceSideThrown;
-        player2.GetComponent<FollowThePath>().waypointIndex = player2StartWaypoint + diceSideThrown;
+        //player1.GetComponent<FollowThePath>().waypointIndex = player1StartWaypoint + diceSideThrown;
+        //player2.GetComponent<FollowThePath>().waypointIndex = player2StartWaypoint + diceSideThrown;
 
         if (player1.GetComponent<FollowThePath>().waypointIndex > 
             player1StartWaypoint + diceSideThrown)

@@ -17,13 +17,16 @@ public class FollowThePath : MonoBehaviour
     public bool moveAllowed = false;
     private void Start()
     {
+       
+
         Transform WayP = board.GetComponentInChildren<Transform>();
         foreach(Transform child in board)
         {
             AllBoardWaypoint.Add(child.transform);
         }
         waypoints = AllBoardWaypoint.ToArray();
-        transform.position = waypoints[waypointIndex].transform.position;
+        transform.localPosition = waypoints[waypointIndex].transform.localPosition;
+
     }
 
     private void Update()
@@ -38,7 +41,7 @@ public class FollowThePath : MonoBehaviour
         if(waypointIndex <= waypoints.Length - 1)
         {
             
-           transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].position, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].position, moveSpeed * Time.deltaTime);
             print(waypointIndex);
             if (transform.position == waypoints[waypointIndex].transform.position)
             {
@@ -46,6 +49,5 @@ public class FollowThePath : MonoBehaviour
                 waypointIndex += 1;
             }
         }
-        
     }
 }

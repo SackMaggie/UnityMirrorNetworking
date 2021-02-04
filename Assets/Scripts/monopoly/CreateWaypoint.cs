@@ -13,7 +13,7 @@ public class CreateWaypoint : MonoBehaviour
         for (int i = 0; i <= 32; i++)
         {
             GameObject waypoint = Instantiate(waypointPre, this.transform);
-            waypoint.transform.localPosition = new Vector3(posX, -posY);
+            waypoint.transform.localPosition = new Vector2(posX, -posY);
             waypoint.name = "waypoint (" + i.ToString() + ")";
             if (i < 8)
             {
