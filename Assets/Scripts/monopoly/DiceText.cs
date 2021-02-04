@@ -8,6 +8,7 @@ public class DiceText : MonoBehaviour
     //private SpriteRenderer rend;
     public TMPro.TextMeshProUGUI diceSides;
 
+    private const int limitePlayer = 2; 
     private int whosTurn = 1;
     private bool corountinceAllowed = true;
 
@@ -40,18 +41,19 @@ public class DiceText : MonoBehaviour
 
         GameControl.diceSideThrown = randomDiceSide;
 
-        if(whosTurn >= 3)
+        if(whosTurn >= limitePlayer+1)
         {
             whosTurn = 1;
         }
 
-        if (whosTurn == 1)
+        switch (whosTurn)
         {
-            GameControl.MovePlayer(1);            
-        }
-        else if(whosTurn == 2)
-        {
-            GameControl.MovePlayer(2);
+            case 1:
+                GameControl.MovePlayer(1);
+                break;
+            case 2:
+                GameControl.MovePlayer(2);
+                break;
         }
         whosTurn++;
         corountinceAllowed = true;
