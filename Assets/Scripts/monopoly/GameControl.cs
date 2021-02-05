@@ -97,6 +97,7 @@ public class GameControl : MonoBehaviour
         {
             whoWinsTextShadow.gameObject.SetActive(true);
             whoWinsTextShadow.GetComponent<TMPro.TextMeshProUGUI>().text = "Player 1 Win";
+            whoMoveTextShadow.gameObject.SetActive(false);
             gameOver = true;
         }
 
@@ -107,6 +108,7 @@ public class GameControl : MonoBehaviour
            // player1MoveText.gameObject.SetActive(false);
             //player2MoveText.gameObject.SetActive(false);
             whoWinsTextShadow.GetComponent<TMPro.TextMeshProUGUI>().text = "Player 2 Win";
+            whoMoveTextShadow.gameObject.SetActive(false);
             gameOver = true;
         }
         if (player3.GetComponent<FollowThePath>().waypointIndex ==
@@ -116,6 +118,7 @@ public class GameControl : MonoBehaviour
             // player1MoveText.gameObject.SetActive(false);
             //player2MoveText.gameObject.SetActive(false);
             whoWinsTextShadow.GetComponent<TMPro.TextMeshProUGUI>().text = "Player 3 Win";
+            whoMoveTextShadow.gameObject.SetActive(false);
             gameOver = true;
         }
         if (player4.GetComponent<FollowThePath>().waypointIndex ==
@@ -125,6 +128,7 @@ public class GameControl : MonoBehaviour
             // player1MoveText.gameObject.SetActive(false);
             //player2MoveText.gameObject.SetActive(false);
             whoWinsTextShadow.GetComponent<TMPro.TextMeshProUGUI>().text = "Player 4 Win";
+            whoMoveTextShadow.gameObject.SetActive(false);
             gameOver = true;
         }
 
