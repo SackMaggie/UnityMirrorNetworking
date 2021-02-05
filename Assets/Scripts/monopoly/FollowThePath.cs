@@ -8,13 +8,12 @@ public class FollowThePath : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 1f;
 
-    [HideInInspector]
     public int waypointIndex = 0;
 
     public bool moveAllowed = false;
     private void Start()
     {
-        transform.position = waypoints[waypointIndex].transform.position;
+        transform.localPosition = waypoints[waypointIndex].transform.localPosition;
     }
 
     private void Update()
@@ -29,10 +28,8 @@ public class FollowThePath : MonoBehaviour
         if(waypointIndex <= waypoints.Length)
         { 
             transform.localPosition = Vector2.MoveTowards(transform.localPosition, waypoints[waypointIndex].localPosition, moveSpeed * Time.deltaTime);
-            print(waypointIndex);
             if (transform.localPosition == waypoints[waypointIndex].transform.localPosition)
             {
-                print("555");
                 waypointIndex += 1;
             }
         }
