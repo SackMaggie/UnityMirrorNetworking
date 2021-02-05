@@ -8,7 +8,7 @@ public class GameControl : MonoBehaviour
     private static GameObject whoWinsTextShadow, whoMoveTextShadow, player1MoveText, player2MoveText;
 
     private static GameObject player1, player2, player3, player4;
-
+    public int calWaypoint = 0;
     public static int diceSideThrown = 0;
     public static int player1StartWaypoint = 0;
     public static int player2StartWaypoint = 0;
@@ -44,8 +44,12 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //player1.GetComponent<FollowThePath>().waypointIndex = player1StartWaypoint + diceSideThrown;
-        //player2.GetComponent<FollowThePath>().waypointIndex = player2StartWaypoint + diceSideThrown;
+        
+        /*player1.GetComponent<FollowThePath>().waypointIndex = player1StartWaypoint + diceSideThrown;
+        player2.GetComponent<FollowThePath>().waypointIndex = player2StartWaypoint + diceSideThrown;
+        player3.GetComponent<FollowThePath>().waypointIndex = player3StartWaypoint + diceSideThrown;
+        player4.GetComponent<FollowThePath>().waypointIndex = player4StartWaypoint + diceSideThrown;*/
+
         if (player1.GetComponent<FollowThePath>().waypointIndex > 
             player1StartWaypoint + diceSideThrown)
         {
@@ -86,15 +90,26 @@ public class GameControl : MonoBehaviour
             whoMoveTextShadow.GetComponent<TMPro.TextMeshProUGUI>().text = "Player 1 Move";
             player4StartWaypoint = player4.GetComponent<FollowThePath>().waypointIndex - 1;
         }
+        
+        if (player1.GetComponent<FollowThePath>().waypointIndex + diceSideThrown >= player1.GetComponent<FollowThePath>().waypoints.Length && player1.GetComponent<FollowThePath>().moveAllowed == false)
+        {
+            calWaypoint = player1.GetComponent<FollowThePath>().waypoints.Length - player1.GetComponent<FollowThePath>().waypointIndex;
+            print("calWaypoint =" + calWaypoint);
+            
+        }
+      
 
         if (player1.GetComponent<FollowThePath>().waypointIndex ==
             player1.GetComponent<FollowThePath>().waypoints.Length)
         {
+            print(calWaypoint);
+            diceSideThrown -= calWaypoint + 1;
             //player1.GetComponent<FollowThePath>().moveAllowed = false;
             //player1MoveText.gameObject.SetActive(false);
             //player2MoveText.gameObject.SetActive(true);
+            player1StartWaypoint = 0;
+            player1.GetComponent<FollowThePath>().waypointIndex = diceSideThrown;
             whoMoveTextShadow.GetComponent<TMPro.TextMeshProUGUI>().text = "Player 2 Move";
-            player1StartWaypoint = player1.GetComponent<FollowThePath>().waypointIndex = 0;
         }
 
         if (player2.GetComponent<FollowThePath>().waypointIndex ==

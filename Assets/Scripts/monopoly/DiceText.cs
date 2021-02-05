@@ -27,7 +27,7 @@ public class DiceText : MonoBehaviour
         int randomDiceSide = 0;
         for (int i = 0; i <= 20; i++)
         {
-            randomDiceSide = Random.Range(1, 7);
+            randomDiceSide = Random.Range(2, 3);
             diceSides.text = randomDiceSide.ToString();
             yield return new WaitForSeconds(0.05f);
         }

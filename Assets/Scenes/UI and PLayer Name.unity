@@ -862,7 +862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  moveSpeed: 40
+  moveSpeed: 1
   waypointIndex: 0
   moveAllowed: 1
 --- !u!1 &883591509
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  moveSpeed: 40
+  moveSpeed: 1
   waypointIndex: 0
   moveAllowed: 1
 --- !u!1 &951803339
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  moveSpeed: 40
+  moveSpeed: 1
   waypointIndex: 0
   moveAllowed: 1
 --- !u!1 &1117667862
@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  moveSpeed: 40
+  moveSpeed: 1
   waypointIndex: 0
   moveAllowed: 1
 --- !u!1 &1276075731
