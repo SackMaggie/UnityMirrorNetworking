@@ -4,20 +4,14 @@ using UnityEngine;
 
 public class DiceText : MonoBehaviour
 {
-    //private Sprite[] diceSides;
-    //private SpriteRenderer rend;
     public TMPro.TextMeshProUGUI diceSides;
-
-    private const int limitePlayer = 2; 
+    private const int limitePlayer = 4; 
     private int whosTurn = 1;
     private bool corountinceAllowed = true;
 
     
     void Start()
     {
-        //rend = GetComponent<SpriteRenderer>();
-        //diceSides = Resources.LoadAll<Sprite>("DiceSide/");
-        //rend.sprite = diceSides[5];
         diceSides.text = "Thrown";
     }
 
@@ -35,7 +29,6 @@ public class DiceText : MonoBehaviour
         {
             randomDiceSide = Random.Range(1, 7);
             diceSides.text = randomDiceSide.ToString();
-            //rend.sprite = diceSides[randomDiceSide];
             yield return new WaitForSeconds(0.05f);
         }
 
@@ -53,6 +46,12 @@ public class DiceText : MonoBehaviour
                 break;
             case 2:
                 GameControl.MovePlayer(2);
+                break;
+            case 3:
+                GameControl.MovePlayer(3);
+                break;
+            case 4:
+                GameControl.MovePlayer(4);
                 break;
         }
         whosTurn++;

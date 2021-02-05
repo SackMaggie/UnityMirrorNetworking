@@ -6,7 +6,6 @@ public class Dice : MonoBehaviour
 {
     private Sprite[] diceSides;
     private SpriteRenderer rend;
-    //public TMPro.TextMeshProUGUI diceSides;
 
     private int whosTurn = 1;
     private bool corountinceAllowed = true;
@@ -17,7 +16,6 @@ public class Dice : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         diceSides = Resources.LoadAll<Sprite>("DiceSide/");
         rend.sprite = diceSides[5];
-        //diceSides.text = "6";
     }
 
     private void OnMouseDown()
@@ -33,7 +31,6 @@ public class Dice : MonoBehaviour
         for (int i = 0; i <= 20; i++)
         {
             randomDiceSide = Random.Range(0, 6);
-            //diceSides.text = randomDiceSide.ToString();
             rend.sprite = diceSides[randomDiceSide];
             yield return new WaitForSeconds(0.05f);
         }
