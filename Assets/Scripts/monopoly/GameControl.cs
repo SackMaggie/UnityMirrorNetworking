@@ -8,7 +8,7 @@ public class GameControl : MonoBehaviour
     private static GameObject whoWinsTextShadow, whoMoveTextShadow, player1MoveText, player2MoveText;
 
     private static GameObject player1, player2, player3, player4;
-    public int calWaypoint = 0;
+    public int calWaypoint = 1;
     public static int diceSideThrown = 0;
     public static int player1StartWaypoint = 0;
     public static int player2StartWaypoint = 0;
@@ -107,9 +107,18 @@ public class GameControl : MonoBehaviour
             //player1.GetComponent<FollowThePath>().moveAllowed = false;
             //player1MoveText.gameObject.SetActive(false);
             //player2MoveText.gameObject.SetActive(true);
-            player1StartWaypoint = 0;
-            player1.GetComponent<FollowThePath>().waypointIndex = diceSideThrown;
             whoMoveTextShadow.GetComponent<TMPro.TextMeshProUGUI>().text = "Player 2 Move";
+            player1StartWaypoint = 0;
+            if (calWaypoint != 0)
+            {
+                player1.GetComponent<FollowThePath>().waypointIndex = diceSideThrown;
+            }
+            else if((calWaypoint == 0))
+            {
+                print("bug yeah");
+                player1.GetComponent<FollowThePath>().waypointIndex = diceSideThrown - 1;
+            }
+          
         }
 
         if (player2.GetComponent<FollowThePath>().waypointIndex ==
