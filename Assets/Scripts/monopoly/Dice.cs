@@ -9,8 +9,10 @@ public class Dice : MonoBehaviour
 
     private int whosTurn = 1;
     private bool corountinceAllowed = true;
+    Coroutine coroutine;
 
-    
+
+
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -21,18 +23,30 @@ public class Dice : MonoBehaviour
     private void OnMouseDown()
     {
         if (!GameControl.gameOver && corountinceAllowed)
-            StartCoroutine("RollTheDice");
+        {
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+            coroutine = StartCoroutine(RollTheDice());
+        }
     }
 
     private IEnumerator RollTheDice()
     {
-        corountinceAllowed = false;
+        
         int randomDiceSide = 0;
         for (int i = 0; i <= 20; i++)
         {
             randomDiceSide = Random.Range(0, 6);
             rend.sprite = diceSides[randomDiceSide];
             yield return new WaitForSeconds(0.05f);
+        }
+
+        while (true)
+        {
+            yield return new WaitForEndOfFrame();
+
+
+
         }
 
         GameControl.diceSideThrown = randomDiceSide + 1;
@@ -47,5 +61,6 @@ public class Dice : MonoBehaviour
         }
         whosTurn *= -1;
         corountinceAllowed = true;
+        coroutine = null;
     }    
 }

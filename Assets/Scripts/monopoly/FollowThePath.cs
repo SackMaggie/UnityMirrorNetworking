@@ -10,7 +10,7 @@ public class FollowThePath : MonoBehaviour
 
     public int waypointIndex = 0;
 
-    public bool moveAllowed = false;
+    public bool isMyTurn = false;
     private void Start()
     {
         transform.localPosition = waypoints[waypointIndex].transform.localPosition;
@@ -18,7 +18,7 @@ public class FollowThePath : MonoBehaviour
 
     private void Update()
     {
-        if (moveAllowed == true)
+        if (isMyTurn == true)
         {
             Move();
         }
