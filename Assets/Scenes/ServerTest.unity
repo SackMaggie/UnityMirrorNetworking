@@ -420,7 +420,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -537,9 +537,9 @@ GameObject:
   m_Component:
   - component: {fileID: 574940227}
   - component: {fileID: 574940226}
-  - component: {fileID: 574940225}
   - component: {fileID: 574940229}
   - component: {fileID: 574940228}
+  - component: {fileID: 574940225}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -556,12 +556,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 574940224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5f4ae3ebab68e4490ebbb344721c77, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showGUI: 1
-  offsetX: 0
-  offsetY: 0
+  Port: 7777
+  NoDelay: 1
+  Interval: 10
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 4096
+  ReceiveWindowSize: 4096
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
 --- !u!114 &574940226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,7 +578,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 574940224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 997da3cc09bfd044e82a632495fca82f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
@@ -579,9 +586,11 @@ MonoBehaviour:
   autoStartServerBuild: 1
   showDebugMessages: 0
   serverTickRate: 30
+  serverBatching: 0
+  serverBatchInterval: 0
   offlineScene: 
   onlineScene: 
-  transport: {fileID: 574940228}
+  transport: {fileID: 574940225}
   networkAddress: localhost
   maxConnections: 4
   disconnectInactiveConnections: 0
@@ -615,18 +624,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 574940224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d389fe9c9df195489d2bf085cc2959d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Port: 7777
-  NoDelay: 1
-  Interval: 10
-  FastResend: 2
-  CongestionWindow: 0
-  SendWindowSize: 128
-  ReceiveWindowSize: 128
-  debugLog: 0
-  debugGUI: 0
+  showGUI: 1
+  offsetX: 0
+  offsetY: 0
 --- !u!114 &574940229
 MonoBehaviour:
   m_ObjectHideFlags: 0

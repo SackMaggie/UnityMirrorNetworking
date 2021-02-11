@@ -23,10 +23,10 @@ public class GameControl : MonoBehaviour
         player1MoveText = GameObject.Find("Player1MoveText");
         player2MoveText = GameObject.Find("Player2MoveText");
 
-        player1 = GameObject.Find("Player1");
+        /*player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
         player3 = GameObject.Find("Player3");
-        player4 = GameObject.Find("Player4");
+        player4 = GameObject.Find("Player4");*/
 
         player1.GetComponent<FollowThePath>().isMyTurn = false;
         player2.GetComponent<FollowThePath>().isMyTurn = false;

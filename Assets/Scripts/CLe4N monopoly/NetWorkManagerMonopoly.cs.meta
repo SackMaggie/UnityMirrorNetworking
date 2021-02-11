@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 590b6033f2931bc43853b0e43be4a8c3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - transport: {instanceID: 0}
+  - authenticator: {instanceID: 0}
+  - playerPrefab: {instanceID: 0}
+  - gameMasterPrefab: {instanceID: 0}
+  - waypointPrefab: {instanceID: 0}
+  - board: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
