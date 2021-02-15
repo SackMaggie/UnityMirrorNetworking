@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿/*using System.Collections.Generic;
 using UnityEngine;
 
 public class TestCallPlayerData : MonoBehaviour
@@ -24,4 +24,4 @@ public class TestCallPlayerData : MonoBehaviour
             print(temp.playerMoney);
         }
     }
-}
+}*/

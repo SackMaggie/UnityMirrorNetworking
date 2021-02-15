@@ -1,7 +1,6 @@
 ﻿using Mirror;
-using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Server
 {
@@ -11,20 +10,16 @@ namespace Server
         public GameObject waypointPrefab;
         public Transform board;
 
-        GameObject gameMaster;
+        GameMaster gameMaster;
+        GameObject gameMasterObject;
+
         List<Transform> allBoardWayPoint = new List<Transform>();
 
         [Server]
-        public override void OnServerAddPlayer(NetworkConnection conn)
-        {
-            GameObject player = Instantiate(playerPrefab, allBoardWayPoint[0].TransformPoint(Vector2.zero),Quaternion.identity);
-            //print(player.GetComponent<NetworkIdentity>().netId);
-            NetworkServer.AddPlayerForConnection(conn, player);
-        }
-
         public override void OnStartServer()
         {
-            gameMaster = Instantiate(gameMasterPrefab, Vector2.zero, Quaternion.identity);
+            gameMasterObject = Instantiate(gameMasterPrefab, Vector2.zero, Quaternion.identity);
+            gameMaster = gameMasterObject.GetComponent<GameMaster>();
             CreateWaypoint(waypointPrefab, board, 10.7f, -10.7f);
 
             foreach (Transform child in board)
@@ -32,6 +27,12 @@ namespace Server
                 allBoardWayPoint.Add(child.transform);
             }
             base.OnStartServer();
+        }
+        public override void OnServerAddPlayer(NetworkConnection conn)
+        {
+            GameObject player = Instantiate(playerPrefab, allBoardWayPoint[0].TransformPoint(Vector2.zero), Quaternion.identity);
+            gameMaster.GetPlayerData(player.GetComponent<NetworkIdentity>().netId.ToString(),NetworkServer.connections.Count - 1,player);
+            NetworkServer.AddPlayerForConnection(conn, player);
         }
 
         private void CreateWaypoint(GameObject waypointPre, Transform localPos, float posX, float posY)
@@ -61,9 +62,9 @@ namespace Server
         }
         public override void OnStopServer()
         {
-            if(gameMaster != null)
+            if (gameMasterObject != null)
             {
-                Destroy(gameMaster);
+                Destroy(gameMasterObject);
             }
         }
     }

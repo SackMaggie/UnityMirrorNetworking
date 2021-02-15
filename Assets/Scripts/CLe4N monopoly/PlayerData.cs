@@ -1,4 +1,6 @@
-﻿public class PlayerData
+﻿using System.Collections.Generic;
+using UnityEngine;
+public class PlayerData
 {
     public string playerName;
     public int playerLevel;
