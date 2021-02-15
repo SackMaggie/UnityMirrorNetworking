@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameMaster : NetworkBehaviour
 {
-    List<PlayerData> player = new List<PlayerData>();
+    List<PlayerData> playerData = new List<PlayerData>();
     Dictionary<string, PlayerData> playerDic = new Dictionary<string, PlayerData>();
 
     [Server]
@@ -12,15 +12,15 @@ public class GameMaster : NetworkBehaviour
     {
         
     }
-    public void GetPlayerData(string UID,int playerOrder,GameObject playerObject)
+    public void GetPlayerData(string UID,int playerOrder,int Level,int money,GameObject playerObject)
     {
         print(UID);
         print(playerOrder);
         print(playerObject.name);
 
-        player.Add(new PlayerData("Player(" + playerOrder+")", 10, 1000));
+        playerData.Add(new PlayerData("Player(" + playerOrder+")", Level, money));
 
-        playerDic.Add(UID, player[playerOrder]);
+        playerDic.Add(UID, playerData[playerOrder]);
 
         PlayerData temp = null;
 

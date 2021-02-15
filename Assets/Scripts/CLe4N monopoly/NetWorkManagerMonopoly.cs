@@ -10,6 +10,11 @@ namespace Server
         public GameObject waypointPrefab;
         public Transform board;
 
+        [SerializeField]
+        int level;
+        [SerializeField]
+        int money;
+
         GameMaster gameMaster;
         GameObject gameMasterObject;
 
@@ -31,7 +36,7 @@ namespace Server
         public override void OnServerAddPlayer(NetworkConnection conn)
         {
             GameObject player = Instantiate(playerPrefab, allBoardWayPoint[0].TransformPoint(Vector2.zero), Quaternion.identity);
-            gameMaster.GetPlayerData(player.GetComponent<NetworkIdentity>().netId.ToString(),NetworkServer.connections.Count - 1,player);
+            gameMaster.GetPlayerData(player.GetComponent<NetworkIdentity>().netId.ToString(),NetworkServer.connections.Count - 1,level,money,player);
             NetworkServer.AddPlayerForConnection(conn, player);
         }
 
