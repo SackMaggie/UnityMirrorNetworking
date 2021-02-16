@@ -2,4 +2,5 @@
 {
     TEST1,
     TEST_SumOnServer,
+    DiceButton
 }

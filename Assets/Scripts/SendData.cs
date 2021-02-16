@@ -27,4 +27,9 @@ public static class SendData
         Player.SendData(DataCommand.TEST_SumOnServer, pooledNetworkWriter.ToArray());
         pooledNetworkWriter.Dispose();
     }
+
+    public static void diceRoll()
+    {
+
+    }
 }

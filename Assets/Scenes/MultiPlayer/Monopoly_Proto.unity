@@ -1461,7 +1461,6 @@ GameObject:
   - component: {fileID: 1276075736}
   - component: {fileID: 1276075735}
   - component: {fileID: 1276075734}
-  - component: {fileID: 1276075733}
   - component: {fileID: 1276075737}
   m_Layer: 5
   m_Name: DiceButton
@@ -1490,19 +1489,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -129}
   m_SizeDelta: {x: 277.1, y: 48.7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1276075733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276075731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e31e9275812b5cc45b69e42f559e9a77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diceSides: {fileID: 1553205768}
 --- !u!114 &1276075734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1702,6 +1688,8 @@ MonoBehaviour:
   waypointPrefab: {fileID: 2254056199706489983, guid: 94012e350d893834ea26aeb419e47646,
     type: 3}
   board: {fileID: 1938126814}
+  level: 20
+  money: 1000
 --- !u!4 &1435870106
 Transform:
   m_ObjectHideFlags: 0

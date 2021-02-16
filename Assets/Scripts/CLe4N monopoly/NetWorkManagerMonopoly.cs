@@ -6,6 +6,7 @@ namespace Server
 {
     public class NetWorkManagerMonopoly : NetworkManager
     {
+        public int maxPlayer;
         public GameObject gameMasterPrefab;
         public GameObject waypointPrefab;
         public Transform board;
@@ -20,7 +21,6 @@ namespace Server
 
         List<Transform> allBoardWayPoint = new List<Transform>();
 
-        [Server]
         public override void OnStartServer()
         {
             gameMasterObject = Instantiate(gameMasterPrefab, Vector2.zero, Quaternion.identity);
@@ -35,9 +35,21 @@ namespace Server
         }
         public override void OnServerAddPlayer(NetworkConnection conn)
         {
-            GameObject player = Instantiate(playerPrefab, allBoardWayPoint[0].TransformPoint(Vector2.zero), Quaternion.identity);
-            gameMaster.GetPlayerData(player.GetComponent<NetworkIdentity>().netId.ToString(),NetworkServer.connections.Count - 1,level,money,player);
-            NetworkServer.AddPlayerForConnection(conn, player);
+            if (!gameMaster.playerDic.ContainsKey(conn.address))
+            {
+                GameObject player = Instantiate(playerPrefab, allBoardWayPoint[0].TransformPoint(Vector2.zero), Quaternion.identity);
+                gameMaster.GetPlayerData(conn.address, NetworkServer.connections.Count - 1, level, money, player);
+                NetworkServer.AddPlayerForConnection(conn, player);
+                if (NetworkServer.connections.Count == maxPlayer)
+                {
+                    gameMaster.StartGame(maxPlayer);
+                }
+            }
+            else
+            {
+                conn.Disconnect();
+            }
+
         }
 
         private void CreateWaypoint(GameObject waypointPre, Transform localPos, float posX, float posY)

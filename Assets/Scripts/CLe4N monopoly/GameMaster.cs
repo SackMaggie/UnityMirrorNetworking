@@ -1,32 +1,34 @@
 ﻿using Mirror;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameMaster : NetworkBehaviour
 {
     List<PlayerData> playerData = new List<PlayerData>();
-    Dictionary<string, PlayerData> playerDic = new Dictionary<string, PlayerData>();
+    string[] playerOrder;
+    public Dictionary<string, PlayerData> playerDic = new Dictionary<string, PlayerData>();
 
     [Server]
     private void Start()
     {
-        
+
     }
+
     public void GetPlayerData(string UID,int playerOrder,int Level,int money,GameObject playerObject)
     {
-        print(UID);
-        print(playerOrder);
-        print(playerObject.name);
-
-        playerData.Add(new PlayerData("Player(" + playerOrder+")", Level, money));
+        playerData.Add(new PlayerData("Player(" + playerOrder +")", Level, money));
 
         playerDic.Add(UID, playerData[playerOrder]);
+    }
 
-        PlayerData temp = null;
+    public void StartGame(int maxPlayer)
+    {
+        string[] UIDList = playerDic.Keys.ToArray();
 
-        if (playerDic.TryGetValue(UID, out temp)) ;
-        {
-            print(temp.playerName+" Lv: "+temp.playerLevel+" Cash :"+temp.playerMoney);
-        }
+        playerOrder = new string[maxPlayer];
+
+        System.Random rnd = new System.Random();
+        playerOrder = UIDList.OrderBy(x => rnd.Next()).ToArray();
     }
 }
