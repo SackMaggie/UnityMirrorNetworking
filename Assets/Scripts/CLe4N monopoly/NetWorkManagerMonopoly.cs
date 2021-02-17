@@ -15,7 +15,6 @@ namespace Server
         int level;
         [SerializeField]
         int money;
-
         GameMaster gameMaster;
         GameObject gameMasterObject;
 
@@ -30,6 +29,7 @@ namespace Server
             foreach (Transform child in board)
             {
                 allBoardWayPoint.Add(child.transform);
+
             }
             base.OnStartServer();
         }
@@ -59,6 +59,8 @@ namespace Server
                 GameObject waypoint = Instantiate(waypointPre, localPos.transform);
                 waypoint.transform.localPosition = new Vector2(posX, posY);
                 waypoint.name = "waypoint (" + i.ToString() + ")";
+
+
                 if (i <= 7)
                 {
                     posX = posX - 2.675f;

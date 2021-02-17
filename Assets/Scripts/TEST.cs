@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Image))]
 public class TEST : MonoBehaviour
 {
     public Button button;
     public Button button2;
+    public List<TEST> ddd;
 
     // Start is called before the first frame update
     private void Start()
@@ -26,4 +28,24 @@ public class TEST : MonoBehaviour
         Debug.Log(value + " : " + value2);
     }
     //CLe4N Test
+
+    public void OnDestroy()
+    {
+        ddd.Clear();
+    }
+
+    [ContextMenu("gamezaza")]
+    public void gameza()
+    {
+        Debug.LogWarning("123");
+        OnDataReceive(5, true);
+    }
+
+#if UNITY_EDITOR
+    [UnityEditor.MenuItem("ABC/DEFG")]
+    public static void tsss()
+    {
+        Debug.LogWarning("222");
+    }
+#endif
 }
