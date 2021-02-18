@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DiceText : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI diceSides;
+    TMPro.TextMeshProUGUI diceSides;
     private const int limitePlayer = 4; 
     private int whosTurn = 1;
     private bool corountinceAllowed = true;
@@ -12,6 +12,7 @@ public class DiceText : MonoBehaviour
     
     void Start()
     {
+        diceSides = GetComponent<TMPro.TextMeshProUGUI>();
         diceSides.text = "Thrown";
     }
 

@@ -1,18 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Mirror;
 
 public class UIControl : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Button diceButtonPrefab;
+    [Server]
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Instantiate(diceButtonPrefab,this.transform);
     }
 }

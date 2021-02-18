@@ -9,28 +9,18 @@ using UnityEngine;
         string[] playerOrder;
         public Dictionary<string, PlayerData> playerDic = new Dictionary<string, PlayerData>();
 
-        [Server]
-        private void Start()
+    [Server]
+    public void GetPlayerData(string UID,int playerOrder,int Level,int money,GameObject playerObject)
+    {
+        playerData.Add(new PlayerData("Player(" + playerOrder +")", Level, money));
+
+        playerDic.Add(UID, playerData[playerOrder]);
+
+        PlayerData temp = null;
+
+        if(playerDic.TryGetValue(UID ,out temp))
         {
-
+            print(UID);
         }
-
-        public void GetPlayerData(string UID, int playerOrder, int Level, int money, GameObject playerObject)
-        {
-            playerData.Add(new PlayerData("Player(" + playerOrder + ")", Level, money));
-
-            playerDic.Add(UID, playerData[playerOrder]);
-        }
-
-        public void StartGame(int maxPlayer)
-        {
-            string[] UIDList = playerDic.Keys.ToArray();
-
-            playerOrder = new string[maxPlayer];
-
-            System.Random rnd = new System.Random();
-            playerOrder = UIDList.OrderBy(x => rnd.Next()).ToArray();
-        }
-
     }
-
+}

@@ -6,7 +6,6 @@ namespace Server
 {
     public class NetWorkManagerMonopoly : NetworkManager
     {
-        public int maxPlayer;
         public GameObject gameMasterPrefab;
         public GameObject waypointPrefab;
         public Transform board;
@@ -15,6 +14,7 @@ namespace Server
         int level;
         [SerializeField]
         int money;
+
         GameMaster gameMaster;
         GameObject gameMasterObject;
 
@@ -29,27 +29,22 @@ namespace Server
             foreach (Transform child in board)
             {
                 allBoardWayPoint.Add(child.transform);
-
             }
             base.OnStartServer();
         }
+
         public override void OnServerAddPlayer(NetworkConnection conn)
         {
-            if (!gameMaster.playerDic.ContainsKey(conn.address))
+            if (NetworkServer.connections.Count <= 4)
             {
                 GameObject player = Instantiate(playerPrefab, allBoardWayPoint[0].TransformPoint(Vector2.zero), Quaternion.identity);
-                gameMaster.GetPlayerData(conn.address, NetworkServer.connections.Count - 1, level, money, player);
+                gameMaster.GetPlayerData(conn.connectionId.ToString(), NetworkServer.connections.Count - 1, level, money, player);
                 NetworkServer.AddPlayerForConnection(conn, player);
-                if (NetworkServer.connections.Count == maxPlayer)
-                {
-                    gameMaster.StartGame(maxPlayer);
-                }
             }
             else
             {
                 conn.Disconnect();
             }
-
         }
 
         private void CreateWaypoint(GameObject waypointPre, Transform localPos, float posX, float posY)
@@ -84,6 +79,11 @@ namespace Server
             if (gameMasterObject != null)
             {
                 Destroy(gameMasterObject);
+            }
+
+            foreach(Transform child in board)
+            {
+                GameObject.Destroy(child.gameObject);
             }
         }
     }

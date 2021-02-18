@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1802579610327846595
+--- !u!1 &7738270664298680376
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1802579610327846596}
-  - component: {fileID: 1802579610327846600}
-  - component: {fileID: 1802579610327846599}
-  - component: {fileID: 1802579610327846598}
-  - component: {fileID: 1802579610327846601}
+  - component: {fileID: 7738270664298680383}
+  - component: {fileID: 7738270664298680371}
+  - component: {fileID: 7738270664298680380}
+  - component: {fileID: 7738270664298680381}
+  - component: {fileID: 7738270664298680370}
   m_Layer: 5
   m_Name: DiceButton
   m_TagString: Untagged
@@ -20,18 +20,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1802579610327846596
+--- !u!224 &7738270664298680383
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802579610327846595}
+  m_GameObject: {fileID: 7738270664298680376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1802579610587585045}
+  - {fileID: 7738270664573977838}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -40,21 +40,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -129}
   m_SizeDelta: {x: 277.1, y: 48.7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1802579610327846600
+--- !u!222 &7738270664298680371
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802579610327846595}
+  m_GameObject: {fileID: 7738270664298680376}
   m_CullTransparentMesh: 0
---- !u!114 &1802579610327846599
+--- !u!114 &7738270664298680380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802579610327846595}
+  m_GameObject: {fileID: 7738270664298680376}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -77,13 +77,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1802579610327846598
+--- !u!114 &7738270664298680381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802579610327846595}
+  m_GameObject: {fileID: 7738270664298680376}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -116,17 +116,17 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1802579610327846599}
+  m_TargetGraphic: {fileID: 7738270664298680380}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &1802579610327846601
+--- !u!61 &7738270664298680370
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802579610327846595}
+  m_GameObject: {fileID: 7738270664298680376}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -146,7 +146,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 268.89258, y: 43.715076}
   m_EdgeRadius: 0
---- !u!1 &1802579610587585044
+--- !u!1 &7738270664573977839
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,10 +154,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1802579610587585045}
-  - component: {fileID: 1802579610587585049}
-  - component: {fileID: 1802579610587585048}
-  - component: {fileID: 1802579610587585047}
+  - component: {fileID: 7738270664573977838}
+  - component: {fileID: 7738270664573977826}
+  - component: {fileID: 7738270664573977827}
+  - component: {fileID: 7738270664573977836}
   m_Layer: 5
   m_Name: DiceText
   m_TagString: Untagged
@@ -165,18 +165,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1802579610587585045
+--- !u!224 &7738270664573977838
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802579610587585044}
+  m_GameObject: {fileID: 7738270664573977839}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1802579610327846596}
+  m_Father: {fileID: 7738270664298680383}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -184,21 +184,21 @@ RectTransform:
   m_AnchoredPosition: {x: -36, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1802579610587585049
+--- !u!222 &7738270664573977826
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802579610587585044}
+  m_GameObject: {fileID: 7738270664573977839}
   m_CullTransparentMesh: 0
---- !u!114 &1802579610587585048
+--- !u!114 &7738270664573977827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802579610587585044}
+  m_GameObject: {fileID: 7738270664573977839}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -280,13 +280,13 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!61 &1802579610587585047
+--- !u!61 &7738270664573977836
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802579610587585044}
+  m_GameObject: {fileID: 7738270664573977839}
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
