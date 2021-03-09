@@ -1552,7 +1552,6 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs: []
-  maxPlayer: 1
   gameMasterPrefab: {fileID: 4681256658399410630, guid: f24f7150a3b4e284abb38ede64e5b665,
     type: 3}
   waypointPrefab: {fileID: 2254056199706489983, guid: 94012e350d893834ea26aeb419e47646,
@@ -2080,7 +2079,7 @@ PrefabInstance:
     - target: {fileID: 7738270664298680376, guid: 7f70896f556281f42b3b97b24a3d1011,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7738270664298680383, guid: 7f70896f556281f42b3b97b24a3d1011,
         type: 3}

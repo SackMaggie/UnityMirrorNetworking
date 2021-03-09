@@ -2,5 +2,6 @@
 {
     TEST1,
     TEST_SumOnServer,
-    DiceButton
+    DiceButton,
+    DiceRoll
 }

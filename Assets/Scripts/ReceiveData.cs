@@ -29,6 +29,8 @@ public class ReceiveData : MonoBehaviour
                 case DataCommand.TEST_SumOnServer:
                     ReadSumResult(data);
                     break;
+                case DataCommand.DiceRoll:
+                    break;
                 default:
                     break;
             }
