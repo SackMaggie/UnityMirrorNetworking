@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class Canva : MonoBehaviour
+using Mirror;
+public class UIController : NetworkBehaviour
 {
     public Button aDieButton;
 
     private void Start()
     {
-        aDieButton.onClick.AddListener(OnClicked);
+        aDieButton.onClick.AddListener(WhenClicked);
     }
-    private void OnClicked()
+    private void WhenClicked()
     {
         SendData.diceRoll();
     }

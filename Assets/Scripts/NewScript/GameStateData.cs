@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameStateData : MonoBehaviour
 {
@@ -9,21 +10,18 @@ public class GameStateData : MonoBehaviour
     public int[] SpaceNumber;
     public int TurnPlayer = 0;
     private int TempTurnPlayer = -99;
-    public GameStateData()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            Money[i] = 25000;
-            Name[i] = "Player " + (i+1);
-            SpaceNumber[i] = 0;
-        }
-    }
+    public Text[] statusText;
+
     private void Update()
     {
         if(TempTurnPlayer != TurnPlayer)
         {
             Debug.Log(Name[TurnPlayer] + "'s Turn");
             TempTurnPlayer = TurnPlayer;
+        }
+        for (int i = 0; i < statusText.Length; i++)
+        {
+            statusText[i].text = Name[i] + " :\n" + Money[i];
         }
     }
     public int GetTurn()

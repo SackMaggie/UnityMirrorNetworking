@@ -65,27 +65,35 @@ public class NewPlayer : NetworkBehaviour
     [Server]
     public void DiceRoll(byte[] serverReceivedData)
     {
-        GameStateData gsd = GameObject.Find("GameState").GetComponent<GameStateData>();
-        if(gsd.GetTurn() == AssignNember)
+        GameObject aGSD = GameObject.FindGameObjectWithTag("GameState");
+        if (aGSD != null)
         {
-            PooledNetworkReader pooledNetworkReader = NetworkReaderPool.GetReader(serverReceivedData);
-            int FirstDie = pooledNetworkReader.Read<int>();
-            int SecondDie = pooledNetworkReader.Read<int>();
-            pooledNetworkReader.Dispose();
-            int Total = FirstDie + SecondDie;
-            PooledNetworkWriter pooledNetworkWriter = NetworkWriterPool.GetWriter();
-            pooledNetworkWriter.Write(Total);
-            pooledNetworkWriter.ToArray();
-            byte[] dataToSendClient = pooledNetworkWriter.ToArray();
-            Debug.Log("Your Dice Result is " + FirstDie + " + " + SecondDie + " = " + Total);
-            gsd.Moving(AssignNember, Total);
-            RpcReceive(DataCommand.DiceRoll, dataToSendClient);
-            pooledNetworkWriter.Dispose();
-            gsd.NextTurn();
+            GameStateData gsd = aGSD.GetComponent<GameStateData>();
+            if (gsd.GetTurn() == AssignNember)
+            {
+                PooledNetworkReader pooledNetworkReader = NetworkReaderPool.GetReader(serverReceivedData);
+                int FirstDie = pooledNetworkReader.Read<int>();
+                int SecondDie = pooledNetworkReader.Read<int>();
+                pooledNetworkReader.Dispose();
+                int Total = FirstDie + SecondDie;
+                PooledNetworkWriter pooledNetworkWriter = NetworkWriterPool.GetWriter();
+                pooledNetworkWriter.Write(Total);
+                pooledNetworkWriter.ToArray();
+                byte[] dataToSendClient = pooledNetworkWriter.ToArray();
+                Debug.Log("Your Dice Result is " + FirstDie + " + " + SecondDie + " = " + Total);
+                gsd.Moving(AssignNember, Total);
+                RpcReceive(DataCommand.DiceRoll, dataToSendClient);
+                pooledNetworkWriter.Dispose();
+                gsd.NextTurn();
+            }
+            else
+            {
+                Debug.LogError("This is NOT your turn");
+            }
         }
         else
         {
-            Debug.LogError("This is NOT your turn");
+            Debug.LogError("Game isn't started yet");
         }
 
     }

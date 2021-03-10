@@ -4,36 +4,28 @@ namespace Server
 {
     public class NetworkManagerForMonopolyNew : NetworkManager
     {
-        public GameObject gameStatePrefab;
 
-        private GameStateData dataGameState;
-        private GameObject objectGameState;
+        public Transform FirstSpawn, SecondSpawn, ThirdSpawn, ForthSpawn;
 
-        //For Spawning Purpose
+        public GameObject diceButtonPrefab,gameStatePrefab;
 
-        public override void OnStartServer()
-        {
-            objectGameState = Instantiate(gameStatePrefab, Vector2.zero, Quaternion.identity);
-            dataGameState = objectGameState.GetComponent<GameStateData>();
-            /*CreateWaypoint(waypointPrefab, board, 10.7f, -10.7f);
-
-            foreach (Transform child in board)
-            {
-                allBoardWayPoint.Add(child.transform);
-            }*/
-            base.OnStartServer();
-        }
         public override void OnServerAddPlayer(NetworkConnection conn)
         {
-            if (NetworkServer.connections.Count <= 4)
-            {
-                GameObject player = Instantiate(playerPrefab, Vector2.zero, Quaternion.identity);
-                
-            }
-            else
-            {
-                conn.Disconnect();
+            Transform CorrectionConnect;
+            if (numPlayers == 0) { CorrectionConnect = FirstSpawn; }
+            else if (numPlayers == 1) { CorrectionConnect = SecondSpawn; }
+            else if (numPlayers == 2) { CorrectionConnect = ThirdSpawn; }
+            else { CorrectionConnect = ForthSpawn; }
+            GameObject player = Instantiate(playerPrefab, CorrectionConnect.position, CorrectionConnect.rotation);
+            NetworkServer.AddPlayerForConnection(conn, player);
+
+            if (numPlayers >= 1) 
+            { 
+                Debug.LogError("Game Start");
+                GameObject aStage = Instantiate(gameStatePrefab);
+                NetworkServer.Spawn(aStage);
             }
         }
+        
     }
 }
