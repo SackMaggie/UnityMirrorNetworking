@@ -31,6 +31,8 @@ public class ReceiveData : MonoBehaviour
                     break;
                 case DataCommand.DiceRoll:
                     break;
+                case DataCommand.MovePiece:
+                    break;
                 default:
                     break;
             }

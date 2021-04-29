@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MultiPlayer/Monopoly_Proto.unity
     guid: 1a312a96901f458458c2e4af390f2b27
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NewScene/TestScene.unity
     guid: 8adfb1635a1d1184cb87f4cde6673bb7
+  - enabled: 1
+    path: Assets/Scenes/NewScene/TestScene2.unity
+    guid: 572c8074b07434a42ae7896fb2e9e1bb
   m_configObjects: {}

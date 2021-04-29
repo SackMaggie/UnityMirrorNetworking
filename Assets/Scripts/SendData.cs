@@ -27,18 +27,4 @@ public static class SendData
         Player.SendData(DataCommand.TEST_SumOnServer, pooledNetworkWriter.ToArray());
         pooledNetworkWriter.Dispose();
     }
-
-    public static void diceRoll()
-    {
-        PooledNetworkWriter pooledNetworkWriter = NetworkWriterPool.GetWriter();
-
-        int FirstDice = UnityEngine.Random.Range(1, 7);
-        int SecondDice = UnityEngine.Random.Range(1, 7);
-
-        pooledNetworkWriter.Write(FirstDice);
-        pooledNetworkWriter.Write(SecondDice);
-
-        NewPlayer.SendData(DataCommand.DiceRoll, pooledNetworkWriter.ToArray());
-        pooledNetworkWriter.Dispose();
-    }
 }

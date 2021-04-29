@@ -3,5 +3,6 @@
     TEST1,
     TEST_SumOnServer,
     DiceButton,
-    DiceRoll
+    DiceRoll,
+    MovePiece
 }
